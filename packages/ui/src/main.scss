@@ -1,6 +1,26 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/inter-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  src: url("./assets/inter-800.woff2") format("woff2");
+}
+
 @import "@carbon/themes/scss/themes";
 
+$carbon--font-families: (
+  sans: (
+    Inter
+  )
+);
 $carbon--theme: $carbon--theme--g100;
+$css--font-face: false;
+$css--plex: false;
 @include carbon--theme();
 
 @import "~carbon-components/scss/globals/scss/styles.scss";
