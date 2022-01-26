@@ -19,6 +19,7 @@
     "carbon-icons": "^7.0.7",
     "clsx": "^1.1.1",
     "d3": "^7.3.0",
+    "fast-simplex-noise": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
