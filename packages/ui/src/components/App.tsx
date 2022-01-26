@@ -23,7 +23,7 @@ const appStyle = css({
   paddingTop: "3rem",
 
   "& .body": {
-    height: "100vh",
+    height: "calc(100vh - 3rem)",
     flex: 1,
     overflowY: "auto",
 
