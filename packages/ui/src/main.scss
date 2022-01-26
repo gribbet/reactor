@@ -4,3 +4,4 @@ $carbon--theme: $carbon--theme--g100;
 @include carbon--theme();
 
 @import "~carbon-components/scss/globals/scss/styles.scss";
+@import "@carbon/charts/styles-g100.css";
