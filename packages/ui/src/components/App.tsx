@@ -1,7 +1,23 @@
 import { LineChart } from "@carbon/charts-react";
 import { ScaleTypes } from "@carbon/charts/interfaces";
-import { Tile } from "carbon-components-react";
+import { css } from "@emotion/css";
+import {
+  Header,
+  HeaderName,
+  Switcher,
+  SwitcherDivider,
+  SwitcherItem,
+  Tile
+} from "carbon-components-react";
 import React, { FC } from "react";
+
+const appStyle = css({
+  display: "flex",
+
+  "& .body": {
+    flex: 1
+  }
+});
 
 const data = [
   {
@@ -126,27 +142,42 @@ const data = [
   }
 ];
 export const App: FC = () => (
-  <Tile>
-    <LineChart
-      data={data}
-      options={{
-        title: "Line (time series)",
-        axes: {
-          bottom: {
-            title: "2019 Annual Sales Figures",
-            mapsTo: "date",
-            scaleType: ScaleTypes.TIME
+  <div className={appStyle}>
+    <Header>
+      <HeaderName prefix="">Reactor</HeaderName>
+    </Header>
+    <Tile className="body">
+      <LineChart
+        data={data}
+        options={{
+          title: "Line (time series)",
+          axes: {
+            bottom: {
+              title: "2019 Annual Sales Figures",
+              mapsTo: "date",
+              scaleType: ScaleTypes.TIME
+            },
+            left: {
+              mapsTo: "value",
+              title: "Conversion rate",
+              scaleType: ScaleTypes.TIME
+            }
           },
-          left: {
-            mapsTo: "value",
-            title: "Conversion rate",
-            scaleType: ScaleTypes.TIME
-          }
-        },
-        curve: "curveMonotoneX",
-        height: "400px",
-        toolbar: { enabled: false }
-      }}
-    />
-  </Tile>
+          curve: "curveMonotoneX",
+          height: "400px",
+          toolbar: { enabled: false }
+        }}
+      />
+    </Tile>
+    <Switcher>
+      <SwitcherItem isSelected>Link 1</SwitcherItem>
+      <SwitcherDivider />
+      <SwitcherItem>Link 2</SwitcherItem>
+      <SwitcherItem>Link 3</SwitcherItem>
+      <SwitcherItem>Link 4</SwitcherItem>
+      <SwitcherItem>Link 5</SwitcherItem>
+      <SwitcherDivider />
+      <SwitcherItem>Link 6</SwitcherItem>
+    </Switcher>
+  </div>
 );
