@@ -1,0 +1,52 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks",
+    "no-async-without-await"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "no-constant-condition": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "quotes": [
+      "error",
+      "double",
+      { "avoidEscape": true, "allowTemplateLiterals": false }
+    ],
+    "object-shorthand": ["error", "always"],
+    "require-await": "error",
+    "react/jsx-curly-brace-presence": "error",
+    "@typescript-eslint/no-floating-promises": "error",
+    "prefer-destructuring": "error",
+    "curly": ["error", "multi"],
+    "no-async-without-await/no-async-without-await": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "react/self-closing-comp": "error",
+    "prefer-arrow-callback": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": ["variable", "function"],
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      }
+    ]
+  }
+}
