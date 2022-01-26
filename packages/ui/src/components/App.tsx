@@ -19,14 +19,24 @@ import { range } from "../utils";
 
 const appStyle = css({
   display: "flex",
+  alignItems: "flex-start",
   paddingTop: "3rem",
 
   "& .body": {
+    height: "100vh",
     flex: 1,
-    display: "grid",
-    gridGap: "1rem",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    padding: "1rem"
+    overflowY: "auto",
+
+    "& .dashboard": {
+      display: "grid",
+      gridGap: "1rem",
+      gridTemplateColumns: "1fr 1fr 1fr",
+      padding: "1rem"
+    }
+  },
+
+  "& .chart": {
+    overflow: "hidden"
   }
 });
 
@@ -46,11 +56,15 @@ export const App: FC = () => {
         <HeaderName prefix="">Reactor</HeaderName>
       </Header>
       <div className="body">
-        <DummyTemperatureChart title="Temperature 1" now={now} />
-        <DummyTemperatureChart title="Temperature 2" now={now} />
-        <DummyTemperatureChart title="Temperature 3" now={now} />
-        <DummyTemperatureChart title="Temperature 4" now={now} />
-        <DummyTemperatureChart title="Temperature 5" now={now} />
+        <div className="dashboard">
+          <DummyTemperatureChart title="Temperature 1" now={now} />
+          <DummyTemperatureChart title="Temperature 2" now={now} />
+          <DummyTemperatureChart title="Temperature 3" now={now} />
+          <DummyTemperatureChart title="Temperature 4" now={now} />
+          <DummyTemperatureChart title="Temperature 5" now={now} />
+          <DummyTemperatureChart title="Temperature 6" now={now} />
+          <DummyTemperatureChart title="Temperature 7" now={now} />
+        </div>
       </div>
       <Switcher>
         <SwitcherItem isSelected>Link 1</SwitcherItem>
@@ -94,7 +108,7 @@ interface DummyChartProps {
 }
 
 const DummyChart: FC<DummyChartProps> = ({ title, now, min, max, value }) => (
-  <Tile>
+  <Tile className="chart">
     <LineChart
       data={groups.flatMap((group, i) =>
         range(0, 5 * 60).map(second => {
