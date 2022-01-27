@@ -3,7 +3,6 @@
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-const webpack = require("webpack");
 
 const development = process.env.NODE_ENV !== "production";
 
@@ -15,12 +14,6 @@ module.exports = {
     path: path.resolve(__dirname, "./build"),
     filename: "[name].[contenthash:8].js",
     assetModuleFilename: "assets/[name].[contenthash:8][ext][query]"
-  },
-  optimization: {
-    minimize: false,
-    splitChunks: {
-      chunks: ({ runtime }) => runtime === "main"
-    }
   },
   cache: {
     type: "filesystem",
